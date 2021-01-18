@@ -13,7 +13,7 @@ class Config:
     # ADMIN_PASSWORD = os.environ.get('ADMIN_PASSWORD') or "|j91jqo?91[y"
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    # MAIL_PREFIX = 'The NBC'
+    # MAIL_PREFIX = 'The X'
 
     @staticmethod
     def init_app(app):
