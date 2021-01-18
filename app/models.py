@@ -12,13 +12,28 @@ class Admin(db.Model, UserMixin):
     fullname = db.Column(db.String(50))
     email = db.Column(db.String(64), unique=True, index=True)
     password_hash = db.Column(db.String(128))
-    speech = db.Column(db.String(256))
+    current_speech = db.Column(db.String(256))
+    previous_speech = db.Column(db.String(256))
+    facebook = db.Column(db.String(64))
+    twitter = db.Column(db.String(64))
+    instagram = db.Column(db.String(64))
 
 
-class User(db.Model, UserMixin):
+class User(db.Model):
     __tablename__ = "user"
     id = db.Column(db.Integer, primary_key=True)
-    fullname = db.Column(db.String(50))
+    user_id = db.Column(db.Integer)
+    last_seen = db.Column(db.DateTime)
+    most_recent_event_id = db.Column(db.Integer)
+    # long&latt
+
+
+class Handbook(db.Model, UserMixin):
+    __tablename__ = "handbook"
+    id = db.Column(db.Integer, primary_key=True)
+    uploaded_on = db.Column(db.DateTime, default=datetime.utcnow())
+    active = db.Column(db.Boolean, default=True)
+    book = db.Column(db.String(128))
 
 
 @login_manager.user_loader

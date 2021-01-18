@@ -70,5 +70,42 @@ def internal_server_error(e):
 @main.route("/dash")
 @login_required
 def dash():
-    pass
+    return render_template("dash.html", user=current_user)
 
+
+@main.route("/socials", methods=["GET", "POST"])
+@login_required
+def socials():
+    if request.method == "POST":
+        if request.form.get("facebook"):
+            current_user.facebook = request.form.get("facebook")
+        if request.form.get("twitter"):
+            current_user.twitter = request.form.get("twitter")
+        if request.form.get("instagram"):
+            current_user.instagram = request.form.get("instagram")
+
+        db.session.add()
+        db.session.commit()
+
+    fb = current_user.facebook
+    tw = current_user.twitter
+    ig = current_user.instagram
+    social = {"fb": fb, "tw": tw, "ig": ig}
+    return render_template(socials.html, data=social)
+
+
+@main.route("/speech", methods=["GET", "POST"])
+@login_required
+def speech():
+    if request.method == "POST":
+        speech_now = request.form.get("speech")
+        cur = current_user.current_speech
+        current_user.previous_speech = cur
+        current_user.current_speech = speech_now
+
+        db.session.add()
+        db.session.commit()
+
+    cur_speech = current_user.current_speech
+    prev_speech = current_user.previous_speech
+    return render_template("speech.html", cur=cur_speech, prev=prev_speech)
