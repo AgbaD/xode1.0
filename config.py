@@ -22,27 +22,21 @@ class Config:
 
 class Development(Config):
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URI") or \
-                              'postgresql://damilare:{}@localhost:5432/x'.format(
-                                  password
-                              )
+                              'sqlite:///' + os.path.join(basedir, 'data.db')
     DEBUG = True
 
 
 class Testing(Config):
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URI") or \
-                              'postgresql://damilare:{}@localhost:5432/x'.format(
-                                  password
-                              )
+                              'sqlite:///' + os.path.join(basedir, 'data.db')
     TESTING = True
 
 
 class Production(Config):
-    username = os.environ.get('DB_USERNAME')
-    db_name = os.environ.get("DB_NAME")
+    # username = os.environ.get('DB_USERNAME')
+    # db_name = os.environ.get("DB_NAME")
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URI") or \
-                             'postgresql://{}:{}@localhost:5432/{}'.format(
-                                  username, password, db_name
-                              )
+                              'sqlite:///' + os.path.join(basedir, 'data.db')
 
 
 config = {
@@ -51,3 +45,10 @@ config = {
     'production': Production,
     'default': Development
 }
+
+
+"""
+'postgresql://damilare:{}@localhost:5432/x'.format(
+                                  password
+                              )
+"""

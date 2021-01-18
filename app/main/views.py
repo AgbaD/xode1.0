@@ -10,7 +10,7 @@ from werkzeug.security import check_password_hash
 # user created
 from . import main
 from .. import db
-from ..models import Admin, User, Handbook
+from ..models import Admin, Userlogs, Handbook
 from ..schema import validate_login
 
 # inbuilt
@@ -135,3 +135,16 @@ def handbook():
                     db.session.commit()
         return render_template("handbook.html", handbooks=handbooks)
     return render_template("handbook.html", handbooks=handbooks)
+
+
+@main.route("/view_logs")
+@login_required
+def view_logs():
+    logs = Userlogs.query.all()
+    return render_template("logs.html", logs=logs)
+
+
+@main.route("/upload_logs", methods=["POST"])
+@login_required
+def upload_logs():
+    pass

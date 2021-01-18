@@ -19,8 +19,8 @@ class Admin(db.Model, UserMixin):
     instagram = db.Column(db.String(64))
 
 
-class User(db.Model):
-    __tablename__ = "user"
+class Userlogs(db.Model):
+    __tablename__ = "userlogs"
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer)
     last_seen = db.Column(db.DateTime)
