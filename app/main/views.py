@@ -10,7 +10,7 @@ from werkzeug.security import check_password_hash
 # user created
 from . import main
 from .. import db
-from ..models import Admin, User
+from ..models import Admin, User, Handbook
 from ..schema import validate_login
 
 # inbuilt
@@ -109,3 +109,29 @@ def speech():
     cur_speech = current_user.current_speech
     prev_speech = current_user.previous_speech
     return render_template("speech.html", cur=cur_speech, prev=prev_speech)
+
+
+@main.route("/handbook", methods["GET", "POST"])
+@login_required
+def handbook():
+    handbooks = Handbook.query.all()
+    if request.method == "POST":
+        condition = request.form.get("condition")
+        if condition == "upload":
+            pass
+        else:
+            action = request.form.get("action")
+            book_id = request.form.get("id")
+            book = Handbook.query.filter_by(public_id=book_id)
+            if action == "delete":
+                if book.active:
+                    book.active = False
+                    db.session.add()
+                    db.session.commit()
+            else:
+                if not book.active:
+                    book.active = True
+                    db.session.add()
+                    db.session.commit()
+        return render_template("handbook.html", handbooks=handbooks)
+    return render_template("handbook.html", handbooks=handbooks)

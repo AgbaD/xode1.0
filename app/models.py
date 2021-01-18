@@ -31,9 +31,11 @@ class User(db.Model):
 class Handbook(db.Model, UserMixin):
     __tablename__ = "handbook"
     id = db.Column(db.Integer, primary_key=True)
+    public_id = db.Column(db.String(50), unique=True)
     uploaded_on = db.Column(db.DateTime, default=datetime.utcnow())
     active = db.Column(db.Boolean, default=True)
-    book = db.Column(db.String(128))
+    book_path = db.Column(db.String(128))
+    book_name = db.Column(db.String(50), unique=True)
 
 
 @login_manager.user_loader
