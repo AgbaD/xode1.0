@@ -143,8 +143,3 @@ def view_logs():
     logs = Userlogs.query.all()
     return render_template("logs.html", logs=logs)
 
-
-@main.route("/upload_logs", methods=["POST"])
-@login_required
-def upload_logs():
-    pass

@@ -1,0 +1,27 @@
+@import "./config";
+@import "./login";
+@import "./responsive";
+
+body {
+    background: $background-color;
+    color: $secondary-color;
+    height: 100%;
+    line-height: 1;
+}
+a {
+    color: $primary-color;
+    text-decoration: none;
+}
+header {
+    z-index: 2;
+    width: 100%;
+    max-height: 20vh !important;
+    box-shadow: 2px 1px 7px $secondary-color;
+    background: $background-color;
+}
+main.main {
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    @include transition-ease;
+}
