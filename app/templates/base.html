@@ -27,7 +27,7 @@
 
     <!-- Css File 
     <link rel="stylesheet" href="../static/css/base.css"> -->
-    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../static/css/base.css">
 
     <title>X || {% block title %}{% endblock %}</title>
 </head>
@@ -76,6 +76,9 @@
                 <small>Administrator</small>
             </div>
         </div>
+
+        {% block content %}{% endblock %}
+        
     </main>
 
     <script src="../static/js/main.js"></script>

@@ -20,6 +20,25 @@
     .menu-btn {
         top: 2.5vh !important;
     }
+    .welcome {
+        margin-left: 3rem !important;
+
+        & h4 {
+            font-size: 30px;
+        }
+
+        & p {
+            font-size: 20px;
+        }
+    }
+    .center {
+        padding-left: 7rem;
+        padding-right: 7rem;
+    }
+    .col-md-5 {
+        margin-right: 1.5rem;
+        margin-left: .6rem;
+    }
 }
 
 @include media-lg {
@@ -40,7 +59,6 @@
         }
     }
     .menu-btn {
-        left: 13vw;
         top: 4vh !important;
     }
     .main {
@@ -54,5 +72,29 @@
     }
     .profile {
         height: 10vh !important;
+    }
+    .welcome {
+
+        & h4 {
+            font-size: 37px;
+        }
+
+        & p {
+            font-size: 23px;
+        }
+    }
+    .center {
+
+        & .col-lg-7 {
+            margin-right: 1.3rem;
+        }
+
+        & .col-lg-4 {
+            height: 200px !important;
+        }
+    }
+    .col-md-5 {
+        margin-right: 1.3rem !important;
+        margin-left: unset !important
     }
 }

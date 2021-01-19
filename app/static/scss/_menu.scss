@@ -1,6 +1,6 @@
 
 .menu-btn {
-    position: absolute;
+    position: fixed;
     z-index: 4;
     left: 1rem;
     top: 4vh;
@@ -14,7 +14,7 @@
         left: 0;
         top: 0.5rem;
         width: 28px;
-        height: 3px;
+        height: 2px;
         background: $primary-color;
         @include transition-ease;
     
@@ -23,7 +23,7 @@
             position: absolute;
             top: -8px;
             width: 28px;
-            height: 3px;
+            height: 2px;
             background: $primary-color;
             @include transition-ease;
         }
@@ -33,7 +33,7 @@
             position: absolute;
             top: 8px;
             width: 28px;
-            height: 3px;
+            height: 2px;
             background: $primary-color;
             @include transition-ease;
         }

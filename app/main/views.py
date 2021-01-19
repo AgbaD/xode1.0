@@ -68,6 +68,7 @@ def internal_server_error(e):
 
 
 @main.route("/dash")
+@login_required
 def dash():
     return render_template("dash.html", user=current_user)
 

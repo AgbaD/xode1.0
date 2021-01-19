@@ -4,6 +4,38 @@
 Admin Dashboard
 {% endblock %}
 
-{% block main %}
-    
+{% block content %}
+    <div class="welcome">
+        <h4>Welcome {{ current_user.firstname }},</h4>
+        <p>Here is an overview of your business.</p>
+    </div>
+
+    <div class="center container-fluid">
+        <div class="row text-center">
+            <a href="#" class="col-lg-7">
+                <div>
+                    <i class="far fa-file-alt fa-2x"></i>
+                    <h4>User Information</h4>
+                </div>
+            </a>
+            <a href="#" class="col-lg-4">
+                <div>
+                    <i class="far fa-comment-dots fa-2x"></i>
+                    <h4>CEO's Speech</h4>
+                </div>
+            </a>
+            <a href="#" class="col-md-5">
+                <div>
+                    <i class="fas fa-book"></i>
+                    <h5>Update Handbook</h5>
+                </div>
+            </a>
+            <a href="#" class="col-md-6">
+                <div>
+                    <i class="fas fa-share-alt"></i>
+                    <h5>Socials</h5>
+                </div>
+            </a>
+        </div>
+    </div>
 {% endblock %}
