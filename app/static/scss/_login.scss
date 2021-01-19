@@ -3,11 +3,88 @@
     height: 100vh;
     width: 100vw;
     color: $background-color;
+    font-family: 'Heebo', sans-serif;
 
-    &-form {
+    &-div {
+        height: 100vh;
+        width: 100vw;
+
+        & row {
+            width: 100vw;
+            height: 100vh;
+        }
+    }
+
+    &-extra {
+        height: 50vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        padding-left: 2rem;
+        padding-right: 1rem;
+        padding-top: 2rem;
+
+        & h1 {
+            font-weight: 700;
+            letter-spacing: 1.44px;
+            line-height: 57.6px;
+            font-size: 48px;
+        }
+
+        & p {
+            font-weight: 400;
+            letter-spacing: -0.2px;
+            line-height: 30px;
+            font-size: 18px;
+            color: #e4eee6;
+        }
+    }
+
+    &-form {
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        &__form {
+            width: 100vw;
+            margin-top: -3rem;
+
+            & input.form-control {
+                width: 83% !important;
+                margin: auto;
+                background: rgba(0, 0, 0, 0.1);
+                color: $background-color;
+                margin-bottom: 2rem;
+                border: unset !important;
+                height: 63px;
+
+                &:focus {
+                    box-shadow: unset !important;
+                }
+
+                &::placeholder {
+                    color: #baddc1;
+                }
+            }
+
+            & button {
+                color: $primary-color;
+                background: $background-color !important;
+                border: unset !important;
+                padding: 1rem 2.3rem;
+                border-radius: 25px;
+                margin-left: 9%;
+                font-size: 700 !important;
+
+                &:hover {
+                    background: rgba(0, 0, 0, 0.1) !important;
+                }
+            }
+        }
     }
 }
+

@@ -39,6 +39,25 @@
         margin-right: 1.5rem;
         margin-left: .6rem;
     }
+    .login {
+        
+        &-extra {
+            justify-content: center;
+            align-items: start;
+            padding-left: 5rem;
+
+            & p {
+                width: 70%;
+            }
+        }
+
+        &-form {
+
+            &__form {
+                margin-top: -23rem;
+            }
+        }
+    }
 }
 
 @include media-lg {
@@ -96,5 +115,33 @@
     .col-md-5 {
         margin-right: 1.3rem !important;
         margin-left: unset !important
+    }
+    .login {
+        
+        &-extra {
+            height: 100vh !important;
+            padding-left: 7rem;
+            margin-top: -1rem;
+
+            & h1 {
+                margin-top: -3rem;
+                font-size: 72px;
+                letter-spacing: 2.16px;
+                line-height: 86.4px;
+                width: 80% !important;
+            }
+
+            & p {
+                width: 90% !important
+            }
+        }
+        &-form {
+            height: 100vh !important;
+
+            &__form {
+                width: 50vw !important;
+                margin-top: -3rem;
+            }
+        }
     }
 }

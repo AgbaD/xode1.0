@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@300&display=swap");
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -13,9 +14,21 @@
   height: 100vh;
   width: 100vw;
   color: #ffffff;
+  font-family: 'Heebo', sans-serif;
 }
 
-.login-form {
+.login-div {
+  height: 100vh;
+  width: 100vw;
+}
+
+.login-div row {
+  width: 100vw;
+  height: 100vh;
+}
+
+.login-extra {
+  height: 50vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -29,6 +42,92 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding-left: 2rem;
+  padding-right: 1rem;
+  padding-top: 2rem;
+}
+
+.login-extra h1 {
+  font-weight: 700;
+  letter-spacing: 1.44px;
+  line-height: 57.6px;
+  font-size: 48px;
+}
+
+.login-extra p {
+  font-weight: 400;
+  letter-spacing: -0.2px;
+  line-height: 30px;
+  font-size: 18px;
+  color: #e4eee6;
+}
+
+.login-form {
+  height: 50vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.login-form__form {
+  width: 100vw;
+  margin-top: -3rem;
+}
+
+.login-form__form input.form-control {
+  width: 83% !important;
+  margin: auto;
+  background: rgba(0, 0, 0, 0.1);
+  color: #ffffff;
+  margin-bottom: 2rem;
+  border: unset !important;
+  height: 63px;
+}
+
+.login-form__form input.form-control:focus {
+  -webkit-box-shadow: unset !important;
+          box-shadow: unset !important;
+}
+
+.login-form__form input.form-control::-webkit-input-placeholder {
+  color: #baddc1;
+}
+
+.login-form__form input.form-control:-ms-input-placeholder {
+  color: #baddc1;
+}
+
+.login-form__form input.form-control::-ms-input-placeholder {
+  color: #baddc1;
+}
+
+.login-form__form input.form-control::placeholder {
+  color: #baddc1;
+}
+
+.login-form__form button {
+  color: #14bd60;
+  background: #ffffff !important;
+  border: unset !important;
+  padding: 1rem 2.3rem;
+  border-radius: 25px;
+  margin-left: 9%;
+  font-size: 700 !important;
+}
+
+.login-form__form button:hover {
+  background: rgba(0, 0, 0, 0.1) !important;
 }
 
 .menu-btn {
@@ -439,6 +538,21 @@
     margin-right: 1.5rem;
     margin-left: .6rem;
   }
+  .login-extra {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
+    padding-left: 5rem;
+  }
+  .login-extra p {
+    width: 70%;
+  }
+  .login-form__form {
+    margin-top: -23rem;
+  }
 }
 
 @media screen and (min-width: 992px) {
@@ -481,6 +595,28 @@
   .col-md-5 {
     margin-right: 1.3rem !important;
     margin-left: unset !important;
+  }
+  .login-extra {
+    height: 100vh !important;
+    padding-left: 7rem;
+    margin-top: -1rem;
+  }
+  .login-extra h1 {
+    margin-top: -3rem;
+    font-size: 72px;
+    letter-spacing: 2.16px;
+    line-height: 86.4px;
+    width: 80% !important;
+  }
+  .login-extra p {
+    width: 90% !important;
+  }
+  .login-form {
+    height: 100vh !important;
+  }
+  .login-form__form {
+    width: 50vw !important;
+    margin-top: -3rem;
   }
 }
 

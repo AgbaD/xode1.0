@@ -22,7 +22,6 @@ def login():
     if request.method == "POST":
         email = request.form.get("email")
         password = request.form.get("password")
-        remember_me = request.form.get("remember_me")
 
         data = {"email": email, "password": password}
         # check schema
@@ -39,7 +38,7 @@ def login():
             flash("Password incorrect!")
             return render_template("login.html", data=data)
 
-        login_user(user, remember_me)
+        login_user(user)
         return redirect(url_for("main.dash"))
     return render_template('login.html')
 
