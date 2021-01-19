@@ -17,7 +17,7 @@ from ..schema import validate_login
 from datetime import datetime
 
 
-@main.route("/login", methods=['GET', 'POSt'])
+@main.route("/login", methods=['GET', 'POST'])
 def login():
     if request.method == "POST":
         email = request.form.get("email").lower()
