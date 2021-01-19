@@ -68,7 +68,6 @@ def internal_server_error(e):
 
 
 @main.route("/dash")
-@login_required
 def dash():
     return render_template("dash.html", user=current_user)
 
@@ -111,7 +110,7 @@ def speech():
     return render_template("speech.html", cur=cur_speech, prev=prev_speech)
 
 
-@main.route("/handbook", methods["GET", "POST"])
+@main.route("/handbook", methods=["GET", "POST"])
 @login_required
 def handbook():
     handbooks = Handbook.query.all()

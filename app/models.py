@@ -10,8 +10,11 @@ class Admin(db.Model, UserMixin):
     __tablename__ = "admin"
     id = db.Column(db.Integer, primary_key=True)
     fullname = db.Column(db.String(50))
+    firstname = db.Column(db.String(50))
+    lastnmae = db.Column(db.String(50))
     email = db.Column(db.String(64), unique=True, index=True)
     password_hash = db.Column(db.String(128))
+    # notifications_ = db.Column(db.PickleType)
     current_speech = db.Column(db.String(256))
     previous_speech = db.Column(db.String(256))
     facebook = db.Column(db.String(64))

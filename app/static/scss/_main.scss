@@ -1,0 +1,33 @@
+.main {
+    position: absolute;
+    top: 0;
+    left: 17vw;
+    height: 100%;
+    width: 82vw;
+    z-index: 1;
+    @include transition-ease;
+}
+
+.profile {
+    width: 100%;
+    text-align: right;
+    float: right;
+    margin-right: -3px;
+    padding-right: .7rem;
+    height: 10vh;
+    border-bottom: 1px solid $third-color;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    &-section {
+
+        & .name {
+            margin-bottom: .1rem;
+            margin-top: .5rem;
+            margin-left: .7rem;
+            font-weight: 500;
+            font-size: 20px;
+        }
+    }
+}

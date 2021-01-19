@@ -2,8 +2,8 @@
 .menu-btn {
     position: absolute;
     z-index: 4;
-    left: 2rem;
-    top: 3vh;
+    left: 1rem;
+    top: 4vh;
     height: 20px;
     width: 28px;
     cursor: pointer;
@@ -15,7 +15,7 @@
         top: 0.5rem;
         width: 28px;
         height: 3px;
-        background: $secondary-color;
+        background: $primary-color;
         @include transition-ease;
     
         &::before {
@@ -24,7 +24,7 @@
             top: -8px;
             width: 28px;
             height: 3px;
-            background: $secondary-color;
+            background: $primary-color;
             @include transition-ease;
         }
     
@@ -34,7 +34,7 @@
             top: 8px;
             width: 28px;
             height: 3px;
-            background: $secondary-color;
+            background: $primary-color;
             @include transition-ease;
         }
     
@@ -60,13 +60,15 @@
     max-width: 17vw;
 
     & .menu-nav {
-        position: absolute;
-        background: #222222;
-        top: 10vh;
+        position: fixed;
+        background: $background-color;
+        box-shadow: 2px 1px 3px $third-color;
+        z-index: 3;
         width: 17vw;
-        height: 90vh;
+        height: 100vh;
         left: 0;
         padding: 0;
+        padding-top: 10vh !important;
         margin: 0;
 
         &.open {
@@ -74,21 +76,29 @@
         }
 
         &__item {
-            margin: 1rem 0;
-            padding: 1rem 0;
+            margin: 0 ;
+            padding: 1.3rem 0;
             padding-left: 1.7rem !important;
 
             &.active {
                 background-color: $secondary-color;
             }
+
+            &:hover {
+                background-color: $secondary-color;
+            }
         }
 
         &__link {
-            font-size: 20px;
-            color: $secondary-color;
+            font-size: 17px;
+            color: $third-color;
 
             &.active {
                 color: $primary-color !important;
+            }
+
+            &:hover {
+                text-decoration: none !important;
             }
 
             & i {
@@ -106,3 +116,4 @@
         }
     }
 }
+

@@ -1,12 +1,12 @@
 @import "./config";
 @import "./login";
-@import "./responsive";
 @import "./menu";
 @import "./main";
+@import "./responsive";
 
 body {
-    background: $background-color;
-    color: $secondary-color;
+    background: $background-color !important;
+    color: $one-color;
     height: 100%;
     line-height: 1;
 }
@@ -18,10 +18,4 @@ header {
     z-index: 2;
     width: 100%;
     background: $background-color;
-}
-main.main {
-    height: 100%;
-    width: 100%;
-    z-index: 1;
-    @include transition-ease;
 }

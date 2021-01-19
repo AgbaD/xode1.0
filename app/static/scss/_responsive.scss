@@ -3,26 +3,56 @@
 
         & .menu-nav {
             width: 10vw !important;
+            padding-top: 7vh !important;
 
             &.open {
                 width: 30vw !important;
             }
         }
     }
+    .main {
+        left: 10vw !important;
+        width: 90vw !important;
+    }
+    .profile {
+        height: 7vh !important;
+    }
+    .menu-btn {
+        top: 2.5vh !important;
+    }
 }
 
 @include media-lg {
     .nav {
+        width: 5vh;
 
         & .menu-nav {
-            width: 17vw !important;
+            width: 5vw !important;
+            padding-top: 10vh !important;
 
-            &__link span.nav_name {
-                display: unset !important;
+            &.open {
+                width: 17vw !important;
             }
+
+            //&__link span.nav_name {
+            //    display: unset !important;
+            //}
         }
     }
     .menu-btn {
-        display: none !important;
+        left: 13vw;
+        top: 4vh !important;
+    }
+    .main {
+        left: 5vw !important;
+        width: 94vw !important;
+
+        &.open {
+            left: 17vw !important;
+            width: 82vw !important;
+        }
+    }
+    .profile {
+        height: 10vh !important;
     }
 }

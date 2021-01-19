@@ -69,7 +69,14 @@
 
     </header>
 
-    {% block main %}{% endblock %}
+    <main class="main">
+        <div class="profile">
+            <div class="profile-section">
+                <p class="name">{{ current_user.fullname }}</p>
+                <small>Administrator</small>
+            </div>
+        </div>
+    </main>
 
     <script src="../static/js/main.js"></script>
 </body>
