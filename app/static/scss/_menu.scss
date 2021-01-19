@@ -1,0 +1,108 @@
+
+.menu-btn {
+    position: absolute;
+    z-index: 4;
+    left: 2rem;
+    top: 3vh;
+    height: 20px;
+    width: 28px;
+    cursor: pointer;
+    @include transition-ease;
+  
+    &__burger {
+        position: absolute;
+        left: 0;
+        top: 0.5rem;
+        width: 28px;
+        height: 3px;
+        background: $secondary-color;
+        @include transition-ease;
+    
+        &::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            width: 28px;
+            height: 3px;
+            background: $secondary-color;
+            @include transition-ease;
+        }
+    
+        &::after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            width: 28px;
+            height: 3px;
+            background: $secondary-color;
+            @include transition-ease;
+        }
+    
+        &.open {
+            transform: rotate(180deg);
+            background: transparent;
+    
+            &::before {
+                transform: rotate(45deg) translate(5px, 8px);
+            }
+    
+            &::after {
+                transform: rotate(-45deg) translate(3px, -7px);
+            }
+        }
+    }
+}
+
+.nav {
+    height: 100vh;
+    position: relative;
+    width: auto;
+    max-width: 17vw;
+
+    & .menu-nav {
+        position: absolute;
+        background: #222222;
+        top: 10vh;
+        width: 17vw;
+        height: 90vh;
+        left: 0;
+        padding: 0;
+        margin: 0;
+
+        &.open {
+            width: 60vw !important;
+        }
+
+        &__item {
+            margin: 1rem 0;
+            padding: 1rem 0;
+            padding-left: 1.7rem !important;
+
+            &.active {
+                background-color: $secondary-color;
+            }
+        }
+
+        &__link {
+            font-size: 20px;
+            color: $secondary-color;
+
+            &.active {
+                color: $primary-color !important;
+            }
+
+            & i {
+                margin-right: .8rem;
+            }
+
+            & span.nav_name {
+                display: none;
+                @include transition-ease;
+
+                &.open {
+                    display: unset !important;
+                }
+            }
+        }
+    }
+}

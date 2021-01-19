@@ -1,0 +1,28 @@
+@include media-mdd {
+    .nav {
+
+        & .menu-nav {
+            width: 10vw !important;
+
+            &.open {
+                width: 30vw !important;
+            }
+        }
+    }
+}
+
+@include media-lg {
+    .nav {
+
+        & .menu-nav {
+            width: 17vw !important;
+
+            &__link span.nav_name {
+                display: unset !important;
+            }
+        }
+    }
+    .menu-btn {
+        display: none !important;
+    }
+}

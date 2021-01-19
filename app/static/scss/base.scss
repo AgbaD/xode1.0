@@ -1,6 +1,8 @@
 @import "./config";
 @import "./login";
 @import "./responsive";
+@import "./menu";
+@import "./main";
 
 body {
     background: $background-color;
@@ -15,8 +17,6 @@ a {
 header {
     z-index: 2;
     width: 100%;
-    max-height: 20vh !important;
-    box-shadow: 2px 1px 7px $secondary-color;
     background: $background-color;
 }
 main.main {
