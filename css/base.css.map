@@ -6,7 +6,7 @@
         "../app/static/scss/_config.scss",
         "../app/static/scss/_login.scss",
         "../app/static/scss/_menu.scss",
-        "../app/static/scss/_main.scss",
+        "../app/static/scss/_dash.scss",
         "../app/static/scss/_responsive.scss"
     ],
     "names": [],
