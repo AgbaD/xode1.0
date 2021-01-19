@@ -20,7 +20,7 @@ from datetime import datetime
 @main.route("/login", methods=['GET', 'POSt'])
 def login():
     if request.method == "POST":
-        email = request.form.get("email")
+        email = request.form.get("email").lower()
         password = request.form.get("password")
 
         data = {"email": email, "password": password}
@@ -90,7 +90,7 @@ def socials():
     tw = current_user.twitter
     ig = current_user.instagram
     social = {"fb": fb, "tw": tw, "ig": ig}
-    return render_template(socials.html, data=social)
+    return render_template("socials.html", data=social)
 
 
 @main.route("/speech", methods=["GET", "POST"])
