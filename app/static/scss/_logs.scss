@@ -1,0 +1,33 @@
+.crumb {
+    padding-left: 1rem;
+    margin-top: 15rem;
+    font-size: 17px;
+}
+
+.table {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    max-width: 900px;
+    margin-left: 3rem;
+    margin-top: 3rem;
+    padding: 3rem;
+
+    &-main {
+        border-collapse: collapse;
+        
+        & tr {
+            border-radius: 5px;
+            border-top: 10px solid;
+            border-bottom: 10px solid;
+            border-color: transparent;
+
+            & td {
+                background-color: #f0eaea;
+                border: 0px;
+                margin-bottom: 2rem;
+            }
+        }
+
+    }
+}

@@ -72,6 +72,10 @@ def dash():
     return render_template("dash.html", user=current_user)
 
 
+@main.route("/base")
+def base():
+    return render_template("base.html")
+
 @main.route("/socials", methods=["GET", "POST"])
 @login_required
 def socials():
@@ -86,11 +90,15 @@ def socials():
         db.session.add()
         db.session.commit()
 
-    fb = current_user.facebook
-    tw = current_user.twitter
-    ig = current_user.instagram
-    social = {"fb": fb, "tw": tw, "ig": ig}
-    return render_template("socials.html", data=social)
+    try:
+        fb = current_user.facebook
+        tw = current_user.twitter
+        ig = current_user.instagram
+
+        social = {"fb": fb, "tw": tw, "ig": ig}
+        return render_template("socials.html", data=social)
+    except:
+        return render_template("socials.html")
 
 
 @main.route("/speech", methods=["GET", "POST"])
@@ -105,8 +113,15 @@ def speech():
         db.session.add()
         db.session.commit()
 
-    cur_speech = current_user.current_speech
-    prev_speech = current_user.previous_speech
+    try:
+        cur_speech = current_user.current_speech
+    except:
+        cur_speech = None
+
+    try:
+        prev_speech = current_user.previous_speech
+    except:
+        prev_speech = None
     return render_template("speech.html", cur=cur_speech, prev=prev_speech)
 
 
@@ -140,5 +155,8 @@ def handbook():
 @login_required
 def view_logs():
     logs = Userlogs.query.all()
-    return render_template("logs.html", logs=logs)
+    if logs:
+        return render_template("logs.html", logs=logs)
+    else:
+        return render_template("logs.html", logs=None)
 

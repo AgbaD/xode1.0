@@ -130,6 +130,114 @@
   background: rgba(0, 0, 0, 0.1) !important;
 }
 
+.crumb {
+  padding-left: 1rem;
+  margin-top: 15rem;
+  font-size: 17px;
+}
+
+.table {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  max-width: 900px;
+  margin-left: 3rem;
+  margin-top: 3rem;
+  padding: 3rem;
+}
+
+.table-main {
+  border-collapse: collapse;
+}
+
+.table-main tr {
+  border-radius: 5px;
+  border-top: 10px solid;
+  border-bottom: 10px solid;
+  border-color: transparent;
+}
+
+.table-main tr td {
+  background-color: #f0eaea;
+  border: 0px;
+  margin-bottom: 2rem;
+}
+
+.socials {
+  margin-top: 23vh;
+  max-height: 50vh;
+}
+
+.socials-menu {
+  width: 100%;
+  height: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.socials-menu li {
+  margin: 1rem;
+}
+
+.socials-menu li a {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: block;
+  text-align: center;
+  -webkit-box-shadow: 2px 1px 3px #222222;
+          box-shadow: 2px 1px 3px #222222;
+}
+
+.socials-menu li a:hover {
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+}
+
+.socials-menu li a i {
+  font-size: 30px;
+  line-height: 60px;
+  color: #ffffff;
+  -webkit-transition: all 0.7s ease-in-out;
+  transition: all 0.7s ease-in-out;
+}
+
+.socials-menu li:nth-child(1) a {
+  background: #3b5999;
+}
+
+.socials-menu li:nth-child(2) a {
+  background: #55acee;
+}
+
+.socials-menu li:nth-child(3) a {
+  background: #e4405f;
+}
+
+.update-socials {
+  max-width: 900px;
+  margin: auto;
+  padding: 2.3rem;
+}
+
+.update-socials > p {
+  font-size: 23px;
+  font-weight: 700;
+}
+
+.update-socials form input:focus {
+  -webkit-box-shadow: unset !important;
+          box-shadow: unset !important;
+  border-color: #14bd60 !important;
+}
+
 .menu-btn {
   position: fixed;
   z-index: 4;
@@ -553,6 +661,9 @@
   .login-form__form {
     margin-top: -23rem;
   }
+  .update-socials {
+    padding: 6.3rem !important;
+  }
 }
 
 @media screen and (min-width: 992px) {
@@ -616,6 +727,10 @@
   }
   .login-form__form {
     width: 50vw !important;
+    margin-top: -3rem;
+  }
+  .update-socials {
+    max-height: 50vh;
     margin-top: -3rem;
   }
 }

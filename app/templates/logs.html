@@ -4,6 +4,78 @@
 User Logs
 {% endblock %}
 
-{% block content %}
+{% block nav_extra %}
+    <li class="menu-nav__item active">
+        <a href="{{ url_for('.dash') }}" class="menu-nav__link active">
+            <i class="far fa-address-book"></i><span class="nav_name">Project Overview</span>
+        </a>
+    </li>
+    <li class="menu-nav__item">
+        <a href="#" class="menu-nav__link">
+            <i class="far fa-file-alt"></i><span class="nav_name">File Upload</span>
+        </a>
+    </li>
+    <li class="menu-nav__item">
+        <a href="#" class="menu-nav__link">
+            <i class="far fa-envelope"></i><span class="nav_name">Message</span>
+        </a>
+    </li>
+    <li class="menu-nav__item">
+        <a href="#" class="menu-nav__link">
+            <i class="far fa-question-circle"></i><span class="nav_name">Help</span>
+        </a>
+    </li>
+    <li class="menu-nav__item">
+        <a href="#" class="menu-nav__link">
+            <i class="fas fa-power-off"></i><span class="nav_name">Logout</span>
+        </a>
+    </li>
+{% endblock %}
 
+{% block content %}
+    <small class="crumb">Admin - User Logs</small>
+
+    <div class="table">
+        <table class="table-main">
+            <tr>
+                <td>Id</td>
+                <td>User_Id</td>
+                <td>Last Seen</td>
+                <td>Recent Event Id</td>
+                <td>Long&Latt</td>
+            </tr>
+            <!--{% for log in logs %}
+                <tr>
+                    <td>{{ log.id }}</td>
+                    <td>{{ log.user_id }}</td>
+                    <td>{{ log.last_seen }}</td>
+                    <td>{{ log.most_recent_event_id }}</td>
+                    <td>{{ log.long&lat }}</td>
+                </tr>
+            {% endfor %}-->
+            <tr>
+                <td>{{ log.id }}</td>
+                <td>{{ log.user_id }}</td>
+                <td>{{ log.last_seen }}</td>
+                <td>{{ log.most_recent_event_id }}</td>
+                <td>{{ log.long_lat }}</td>
+            </tr>
+            <tr>
+                <td>{{ log.id }}</td>
+                <td>{{ log.user_id }}</td>
+                <td>{{ log.last_seen }}</td>
+                <td>{{ log.most_recent_event_id }}</td>
+                <td>{{ log.long&lat }}</td>
+            </tr>
+            <tr>
+                <td>{{ log.id }}</td>
+                <td>{{ log.user_id }}</td>
+                <td>{{ log.last_seen }}</td>
+                <td>{{ log.most_recent_event_id }}</td>
+                <td>{{ log.long&lat }}</td>
+            </tr>
+        </table>
+    </div>
+
+    <a href="{{ url_for('.dash') }}" class="back">Back</a>
 {% endblock %}

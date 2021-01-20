@@ -58,6 +58,9 @@
             }
         }
     }
+    .update-socials {
+        padding: 6.3rem !important;
+    }
 }
 
 @include media-lg {
@@ -144,4 +147,8 @@
             }
         }
     }
+    .update-socials {
+        max-height: 50vh;
+        margin-top: -3rem;
+    }   
 }

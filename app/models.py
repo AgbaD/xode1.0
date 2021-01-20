@@ -28,6 +28,7 @@ class Userlogs(db.Model):
     user_id = db.Column(db.Integer)
     last_seen = db.Column(db.DateTime)
     most_recent_event_id = db.Column(db.Integer)
+    long_lat = db.Column(db.String(50))
     # long&latt
 
 

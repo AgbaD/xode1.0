@@ -77,7 +77,47 @@
             </div>
         </div>
 
+        <div class="socials">
+            <ul class="socials-menu">
+                <!--{% if data %}
+                    <li><a href="{{ data['fb'] }}"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="{{ data['fb'] }}"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="{{ data['fb'] }}"><i class="fab fa-instagram"></i></a></li>
+                {% else %}
+                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                {% endif %}-->
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+        </div>
         
+        <div class="update-socials">
+            <p>Update Socials</p>
+            <form method="POST" action="">
+                <div class="form-group row">
+                  <label for="facebook" class="col-sm-2 col-form-label">Facebook</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="facebook" name="facebook">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="twitter" class="col-sm-2 col-form-label">Twitter</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="twitter" name="twitter">
+                  </div>
+                </div>
+                <div class="form-group row">
+                    <label for="instagram" class="col-sm-2 col-form-label">Instagram</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="instagram" name="instagram">
+                    </div>
+                </div>
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </form>
+        </div>
         
     </main>
 
