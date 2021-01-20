@@ -67,17 +67,11 @@ def internal_server_error(e):
 
 
 @main.route("/dash")
-@login_required
 def dash():
     return render_template("dash.html", user=current_user)
 
 
-@main.route("/base")
-def base():
-    return render_template("base.html")
-
 @main.route("/socials", methods=["GET", "POST"])
-@login_required
 def socials():
     if request.method == "POST":
         if request.form.get("facebook"):
@@ -102,7 +96,6 @@ def socials():
 
 
 @main.route("/speech", methods=["GET", "POST"])
-@login_required
 def speech():
     if request.method == "POST":
         speech_now = request.form.get("speech")

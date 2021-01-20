@@ -61,6 +61,16 @@
     .update-socials {
         padding: 6.3rem !important;
     }
+    .speech {
+    
+        & .row {
+            padding: 3rem 3.3rem;
+
+            & .col-12, & .prev {
+                padding-bottom: 2rem;
+            }
+        }
+    }
 }
 
 @include media-lg {
@@ -150,5 +160,22 @@
     .update-socials {
         max-height: 50vh;
         margin-top: -3rem;
-    }   
+    }
+    .speech {
+    
+        & .row {
+            padding: 3rem 11rem;
+
+            & .col-12, & .prev {
+                padding-bottom: 2rem;
+
+                & p {
+                    font-family: 'Heebo', sans-serif;
+                    letter-spacing: .4px;
+                    line-height: 23px;
+                    font-size: 19px;
+                }
+            }
+        }
+    }
 }

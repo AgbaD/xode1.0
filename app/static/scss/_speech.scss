@@ -1,0 +1,68 @@
+.speech {
+    position: absolute;
+    top: 10vh;
+    right: 0;
+    margin: auto;
+
+    & .row {
+        padding: 3rem 1rem;
+
+        & .col-12 {
+            box-shadow: 2px 1px 3px $third-color;
+            height: auto;
+            padding-top: 2rem; 
+
+            & h3 {
+                font-family: 'Heebo', sans-serif;
+                color: $primary-color;
+            }
+
+            & p {
+                font-family: 'Heebo', sans-serif;
+                letter-spacing: .2px;
+                line-height: 20px;
+                font-size: 17px;
+            }
+        }
+
+        & .prev {
+            margin-top: 3rem;
+            box-shadow: 2px 1px 3px $third-color;
+            height: auto;
+            padding-top: 2rem; 
+
+            & h3 {
+                font-family: 'Heebo', sans-serif;
+                color: $primary-color;
+            }
+
+            & p {
+                font-family: 'Heebo', sans-serif;
+                letter-spacing: .2px;
+                line-height: 20px;
+                font-size: 17px;
+            }
+        }
+
+        & .form {
+            margin-top: 3rem;
+            box-shadow: 2px 1px 3px $third-color;
+            height: auto;
+            padding-top: 2rem;
+            padding-bottom: 3rem;
+
+            & h3 {
+                font-family: 'Heebo', sans-serif;
+                color: $primary-color;
+            }
+
+            & form textarea {
+
+                &:focus {
+                    box-shadow: unset !important;
+                    border-color: $primary-color !important;
+                }
+            }
+        }
+    }
+}

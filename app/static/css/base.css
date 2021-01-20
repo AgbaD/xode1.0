@@ -238,6 +238,76 @@
   border-color: #14bd60 !important;
 }
 
+.speech {
+  position: absolute;
+  top: 10vh;
+  right: 0;
+  margin: auto;
+}
+
+.speech .row {
+  padding: 3rem 1rem;
+}
+
+.speech .row .col-12 {
+  -webkit-box-shadow: 2px 1px 3px #222222;
+          box-shadow: 2px 1px 3px #222222;
+  height: auto;
+  padding-top: 2rem;
+}
+
+.speech .row .col-12 h3 {
+  font-family: 'Heebo', sans-serif;
+  color: #14bd60;
+}
+
+.speech .row .col-12 p {
+  font-family: 'Heebo', sans-serif;
+  letter-spacing: .2px;
+  line-height: 20px;
+  font-size: 17px;
+}
+
+.speech .row .prev {
+  margin-top: 3rem;
+  -webkit-box-shadow: 2px 1px 3px #222222;
+          box-shadow: 2px 1px 3px #222222;
+  height: auto;
+  padding-top: 2rem;
+}
+
+.speech .row .prev h3 {
+  font-family: 'Heebo', sans-serif;
+  color: #14bd60;
+}
+
+.speech .row .prev p {
+  font-family: 'Heebo', sans-serif;
+  letter-spacing: .2px;
+  line-height: 20px;
+  font-size: 17px;
+}
+
+.speech .row .form {
+  margin-top: 3rem;
+  -webkit-box-shadow: 2px 1px 3px #222222;
+          box-shadow: 2px 1px 3px #222222;
+  height: auto;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+
+.speech .row .form h3 {
+  font-family: 'Heebo', sans-serif;
+  color: #14bd60;
+}
+
+.speech .row .form form textarea:focus {
+  -webkit-box-shadow: unset !important;
+          box-shadow: unset !important;
+  border-color: #14bd60 !important;
+}
+
 .menu-btn {
   position: fixed;
   z-index: 4;
@@ -664,6 +734,12 @@
   .update-socials {
     padding: 6.3rem !important;
   }
+  .speech .row {
+    padding: 3rem 3.3rem;
+  }
+  .speech .row .col-12, .speech .row .prev {
+    padding-bottom: 2rem;
+  }
 }
 
 @media screen and (min-width: 992px) {
@@ -732,6 +808,18 @@
   .update-socials {
     max-height: 50vh;
     margin-top: -3rem;
+  }
+  .speech .row {
+    padding: 3rem 11rem;
+  }
+  .speech .row .col-12, .speech .row .prev {
+    padding-bottom: 2rem;
+  }
+  .speech .row .col-12 p, .speech .row .prev p {
+    font-family: 'Heebo', sans-serif;
+    letter-spacing: .4px;
+    line-height: 23px;
+    font-size: 19px;
   }
 }
 
