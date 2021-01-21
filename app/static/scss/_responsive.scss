@@ -71,6 +71,19 @@
             }
         }
     }
+    .upload_handbook {
+        padding: 3rem;
+
+        & form {
+
+            & .form-group {
+
+                & input {
+                    width: 80% !important;
+                }
+            }
+        }
+    }
 }
 
 @include media-lg {
@@ -174,6 +187,18 @@
                     letter-spacing: .4px;
                     line-height: 23px;
                     font-size: 19px;
+                }
+            }
+        }
+    }
+    .upload_handbook {
+
+        & form {
+
+            & .form-group {
+
+                & input {
+                    width: 70% !important;
                 }
             }
         }

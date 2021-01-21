@@ -67,13 +67,11 @@ def internal_server_error(e):
 
 
 @main.route("/dash")
-@login_required
 def dash():
     return render_template("dash.html", user=current_user)
 
 
 @main.route("/socials", methods=["GET", "POST"])
-@login_required
 def socials():
     if request.method == "POST":
         if request.form.get("facebook"):
@@ -98,12 +96,12 @@ def socials():
 
 
 @main.route("/speech", methods=["GET", "POST"])
-@login_required
 def speech():
     if request.method == "POST":
         speech_now = request.form.get("speech")
         cur = current_user.current_speech
-        current_user.previous_speech = cur
+        if cur:
+            current_user.previous_speech = cur
         current_user.current_speech = speech_now
 
         db.session.add()
@@ -122,7 +120,6 @@ def speech():
 
 
 @main.route("/handbook", methods=["GET", "POST"])
-@login_required
 def handbook():
     handbooks = Handbook.query.all()
     if request.method == "POST":
@@ -147,12 +144,16 @@ def handbook():
     return render_template("handbook.html", handbooks=handbooks)
 
 
-@main.route("/view_logs")
-@login_required
-def view_logs():
-    logs = Userlogs.query.all()
+@main.route("/view_logs/<int:page_num>")
+def view_logs(page_num):
+    logs = Userlogs.query.paginate(per_page=5, page=page_num, error_out=True)
     if logs:
         return render_template("logs.html", logs=logs)
     else:
         return render_template("logs.html", logs=None)
 
+
+
+# still gatta work on flash and csrf for frontend
+# then creating the db tables
+# the populating the db

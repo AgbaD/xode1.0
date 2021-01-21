@@ -130,37 +130,37 @@
   background: rgba(0, 0, 0, 0.1) !important;
 }
 
-.crumb {
-  padding-left: 1rem;
-  margin-top: 15rem;
-  font-size: 17px;
-}
-
 .table {
+  margin-top: 3vh;
+  padding: 1rem;
   overflow-x: scroll;
-  overflow-y: hidden;
-  white-space: nowrap;
-  max-width: 900px;
-  margin-left: 3rem;
-  margin-top: 3rem;
-  padding: 3rem;
 }
 
-.table-main {
-  border-collapse: collapse;
+.table .tr {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 10% 15% 30% 30% 15%;
+      grid-template-columns: 10% 15% 30% 30% 15%;
+  grid-column-gap: 2rem;
+  margin-top: -2rem;
 }
 
-.table-main tr {
-  border-radius: 5px;
-  border-top: 10px solid;
-  border-bottom: 10px solid;
-  border-color: transparent;
+.table .tr:nth-child(1) {
+  margin-top: unset !important;
 }
 
-.table-main tr td {
-  background-color: #f0eaea;
-  border: 0px;
-  margin-bottom: 2rem;
+.table .tr li {
+  padding: .4rem 1rem;
+}
+
+.caption {
+  background-color: #14bd60;
+  color: #fff;
+  font-size: x-large;
+  font-weight: bold;
+  letter-spacing: .3em;
+  padding: 1rem;
+  margin-top: 15vh;
 }
 
 .socials {
@@ -306,6 +306,83 @@
   -webkit-box-shadow: unset !important;
           box-shadow: unset !important;
   border-color: #14bd60 !important;
+}
+
+.upload_handbook {
+  max-width: 1100px;
+  margin: auto;
+  margin-top: 13vh !important;
+  padding: 2rem;
+  max-height: 30vh;
+  position: relative;
+}
+
+.upload_handbook form {
+  height: 100%;
+}
+
+.upload_handbook form .form-group {
+  margin-top: 1rem;
+}
+
+.upload_handbook form .form-group input::-webkit-input-placeholder {
+  color: #baddc1;
+}
+
+.upload_handbook form .form-group input:-ms-input-placeholder {
+  color: #baddc1;
+}
+
+.upload_handbook form .form-group input::-ms-input-placeholder {
+  color: #baddc1;
+}
+
+.upload_handbook form .form-group input::placeholder {
+  color: #baddc1;
+}
+
+.upload_handbook form .form-group input:focus {
+  -webkit-box-shadow: unset !important;
+          box-shadow: unset !important;
+  border-color: #14bd60;
+}
+
+.upload_handbook form button {
+  background: #14bd60;
+  border-radius: 25px;
+  border-color: #14bd60;
+}
+
+.upload_handbook form button:focus, .upload_handbook form button:active {
+  background-color: #14bd60;
+  border-color: #14bd60;
+}
+
+.upload_handbook form button:hover {
+  -webkit-transform: scale(1.04);
+          transform: scale(1.04);
+}
+
+.upload_handbook form label {
+  padding: 1rem .9rem;
+  border: 1px solid #14bd60;
+  border-radius: 48px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color: #222222;
+  -webkit-transition: all 0.7s ease-in-out;
+  transition: all 0.7s ease-in-out;
+}
+
+.upload_handbook form label:hover {
+  -webkit-transform: scale(1.04);
+          transform: scale(1.04);
+}
+
+.upload_handbook form label span {
+  font-weight: normal;
+  padding-bottom: .5rem;
 }
 
 .menu-btn {
@@ -740,6 +817,12 @@
   .speech .row .col-12, .speech .row .prev {
     padding-bottom: 2rem;
   }
+  .upload_handbook {
+    padding: 3rem;
+  }
+  .upload_handbook form .form-group input {
+    width: 80% !important;
+  }
 }
 
 @media screen and (min-width: 992px) {
@@ -820,6 +903,9 @@
     letter-spacing: .4px;
     line-height: 23px;
     font-size: 19px;
+  }
+  .upload_handbook form .form-group input {
+    width: 70% !important;
   }
 }
 

@@ -1,33 +1,31 @@
-.crumb {
-    padding-left: 1rem;
-    margin-top: 15rem;
-    font-size: 17px;
-}
-
 .table {
+    margin-top: 3vh;
+    padding: 1rem;
     overflow-x: scroll;
-    overflow-y: hidden;
-    white-space: nowrap;
-    max-width: 900px;
-    margin-left: 3rem;
-    margin-top: 3rem;
-    padding: 3rem;
 
-    &-main {
-        border-collapse: collapse;
-        
-        & tr {
-            border-radius: 5px;
-            border-top: 10px solid;
-            border-bottom: 10px solid;
-            border-color: transparent;
+    & .tr {
+        display: grid;
+        grid-template-columns: 10% 15% 30% 30% 15%;
+        grid-column-gap: 2rem;
+        margin-top: -2rem;
 
-            & td {
-                background-color: #f0eaea;
-                border: 0px;
-                margin-bottom: 2rem;
-            }
+        &:nth-child(1) {
+            margin-top: unset !important;
         }
 
+        & li {
+            padding: .4rem 1rem;
+
+        }
     }
+}
+
+.caption {
+    background-color: $primary-color;
+    color: #fff;
+    font-size: x-large;
+    font-weight: bold;
+    letter-spacing: .3em;
+    padding: 1rem;
+    margin-top: 15vh;
 }

@@ -11,7 +11,7 @@ User Logs
         </a>
     </li>
     <li class="menu-nav__item">
-        <a href="#" class="menu-nav__link">
+        <a href="{{ url_for('.handbook') }}" class="menu-nav__link">
             <i class="far fa-file-alt"></i><span class="nav_name">File Upload</span>
         </a>
     </li>
@@ -31,56 +31,43 @@ User Logs
         </a>
     </li>
     <li class="menu-nav__item">
-        <a href="#" class="menu-nav__link">
+        <a href="{{ url_for('.logout') }}" class="menu-nav__link">
             <i class="fas fa-power-off"></i><span class="nav_name">Logout</span>
         </a>
     </li>
 {% endblock %}
 
 {% block content %}
-    <small class="crumb">Admin - User Logs</small>
-
+    <p class="caption">User Logs</p>
     <div class="table">
-        <table class="table-main">
-            <tr>
-                <td>Id</td>
-                <td>User_Id</td>
-                <td>Last Seen</td>
-                <td>Recent Event Id</td>
-                <td>Long&Latt</td>
-            </tr>
-            <!--{% for log in logs %}
-                <tr>
-                    <td>{{ log.id }}</td>
-                    <td>{{ log.user_id }}</td>
-                    <td>{{ log.last_seen }}</td>
-                    <td>{{ log.most_recent_event_id }}</td>
-                    <td>{{ log.long&lat }}</td>
-                </tr>
-            {% endfor %}-->
-            <tr>
-                <td>{{ log.id }}</td>
-                <td>{{ log.user_id }}</td>
-                <td>{{ log.last_seen }}</td>
-                <td>{{ log.most_recent_event_id }}</td>
-                <td>{{ log.long_lat }}</td>
-            </tr>
-            <tr>
-                <td>{{ log.id }}</td>
-                <td>{{ log.user_id }}</td>
-                <td>{{ log.last_seen }}</td>
-                <td>{{ log.most_recent_event_id }}</td>
-                <td>{{ log.long&lat }}</td>
-            </tr>
-            <tr>
-                <td>{{ log.id }}</td>
-                <td>{{ log.user_id }}</td>
-                <td>{{ log.last_seen }}</td>
-                <td>{{ log.most_recent_event_id }}</td>
-                <td>{{ log.long&lat }}</td>
-            </tr>
-        </table>
-    </div>
+        {% if logs %}
+            <ul class="tr head">
+                <li>ID</li>
+                <li>User Id</li>
+                <li>Last Seen</li>
+                <li>Recent Event Id</li>
+                <li>Long & Lat</li>
+            </ul>
 
-    <a href="{{ url_for('.dash') }}" class="back">Back</a>
+            {% for log in logs.items %}
+            <ul class="tr">
+                <li>{{ log.id }}</li>
+                <li>{{ log.user_id }}</li>
+                <li>{{ log.last_seen }}</li>
+                <li>{{ log.most_recent_event_id }}</li>
+                <li>{{ log.long_lat }}</li>
+            </ul>
+            {% endfor %}
+
+            {% for page in logs.iter_pages(left_edge=2, right_edge=2, left_current=2, right_current=2) %}
+                {% if page %}
+                    <a href="{{ url_for('.view_logs', page_num=page ) }}">{{ page }}</a>
+                {% else %}
+                    ...
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <p class="alert">Please Polulate Database!!!</p>
+        {% endif %}
+    </div>
 {% endblock %}
