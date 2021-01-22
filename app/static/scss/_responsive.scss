@@ -84,6 +84,10 @@
             }
         }
     }
+    .table-div {
+        margin-left: 2.3rem;
+        margin-right: 2rem;
+    }
 }
 
 @include media-lg {
@@ -202,5 +206,9 @@
                 }
             }
         }
+    }
+    .table-div {
+        margin-left: 3.3rem !important;
+        overflow-x: hidden !important;
     }
 }

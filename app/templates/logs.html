@@ -11,7 +11,7 @@ User Logs
         </a>
     </li>
     <li class="menu-nav__item">
-        <a href="{{ url_for('.handbook') }}" class="menu-nav__link">
+        <a href="{{ url_for('.handbook', page_num=1) }}" class="menu-nav__link">
             <i class="far fa-file-alt"></i><span class="nav_name">File Upload</span>
         </a>
     </li>
@@ -39,33 +39,35 @@ User Logs
 
 {% block content %}
     <p class="caption">User Logs</p>
-    <div class="table">
+    <div class="table-div">
         {% if logs %}
-            <ul class="tr head">
-                <li>ID</li>
-                <li>User Id</li>
-                <li>Last Seen</li>
-                <li>Recent Event Id</li>
-                <li>Long & Lat</li>
-            </ul>
+        <table>
+            <tr class="head">
+                <th>ID</th>
+                <th>User Id</th>
+                <th>Last Seen</th>
+                <th>Recent Event Id</th>
+                <th>Long & Lat</th>
+            </tr>  
 
             {% for log in logs.items %}
-            <ul class="tr">
-                <li>{{ log.id }}</li>
-                <li>{{ log.user_id }}</li>
-                <li>{{ log.last_seen }}</li>
-                <li>{{ log.most_recent_event_id }}</li>
-                <li>{{ log.long_lat }}</li>
-            </ul>
+            <tr>
+                <td>{{ log.id }}</td>
+                <td>{{ log.user_id }}</td>
+                <td>{{ log.last_seen }}</td>
+                <td>{{ log.most_recent_event_id }}</td>
+                <td>{{ log.long_lat }}</td>
+            </tr>
             {% endfor %}
 
-            {% for page in logs.iter_pages(left_edge=2, right_edge=2, left_current=2, right_current=2) %}
+            <p>Pages:{% for page in logs.iter_pages(left_edge=2, right_edge=2, left_current=2, right_current=2) %}
                 {% if page %}
                     <a href="{{ url_for('.view_logs', page_num=page ) }}">{{ page }}</a>
                 {% else %}
                     ...
                 {% endif %}
-            {% endfor %}
+            {% endfor %}</p>
+        </table>
         {% else %}
             <p class="alert">Please Polulate Database!!!</p>
         {% endif %}

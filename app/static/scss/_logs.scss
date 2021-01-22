@@ -1,21 +1,41 @@
-.table {
+.table-div {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    margin-left: 1rem;
+}
+
+table {
     margin-top: 3vh;
     padding: 1rem;
-    overflow-x: scroll;
+    border-collapse: collapse;
+	border: 1px solid #fff; /*for older IE*/
+	border-style: hidden;
 
-    & .tr {
-        display: grid;
-        grid-template-columns: 10% 15% 30% 30% 15%;
-        grid-column-gap: 2rem;
-        margin-top: -2rem;
+    & tr {
 
-        &:nth-child(1) {
-            margin-top: unset !important;
+        &:nth-child(odd) {
+            background-color: $secondary-color;
         }
 
-        & li {
-            padding: .4rem 1rem;
+        &:nth-child(even) {
+            background-color: $one-color;
+        }
 
+        & td, & th {
+            padding: 1rem;
+            border-width: 1px;
+            border-style: solid;
+            border-color: $secondary-color $third-color;
+        }
+
+        &.head {
+            
+            & th {
+                padding: 8px;
+                background-color: $secondary-color !important;
+                font-size: large;
+                margin: unset !important;
+            }
         }
     }
 }

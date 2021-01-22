@@ -130,27 +130,41 @@
   background: rgba(0, 0, 0, 0.1) !important;
 }
 
-.table {
+.table-div {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  margin-left: 1rem;
+}
+
+table {
   margin-top: 3vh;
   padding: 1rem;
-  overflow-x: scroll;
+  border-collapse: collapse;
+  border: 1px solid #fff;
+  /*for older IE*/
+  border-style: hidden;
 }
 
-.table .tr {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 10% 15% 30% 30% 15%;
-      grid-template-columns: 10% 15% 30% 30% 15%;
-  grid-column-gap: 2rem;
-  margin-top: -2rem;
+table tr:nth-child(odd) {
+  background-color: rgba(20, 189, 96, 0.3);
 }
 
-.table .tr:nth-child(1) {
-  margin-top: unset !important;
+table tr:nth-child(even) {
+  background-color: #6b6868;
 }
 
-.table .tr li {
-  padding: .4rem 1rem;
+table tr td, table tr th {
+  padding: 1rem;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(20, 189, 96, 0.3) #222222;
+}
+
+table tr.head th {
+  padding: 8px;
+  background-color: rgba(20, 189, 96, 0.3) !important;
+  font-size: large;
+  margin: unset !important;
 }
 
 .caption {
@@ -361,6 +375,8 @@
 .upload_handbook form button:hover {
   -webkit-transform: scale(1.04);
           transform: scale(1.04);
+  background-color: #14bd60;
+  border-color: #14bd60;
 }
 
 .upload_handbook form label {
@@ -823,6 +839,10 @@
   .upload_handbook form .form-group input {
     width: 80% !important;
   }
+  .table-div {
+    margin-left: 2.3rem;
+    margin-right: 2rem;
+  }
 }
 
 @media screen and (min-width: 992px) {
@@ -906,6 +926,10 @@
   }
   .upload_handbook form .form-group input {
     width: 70% !important;
+  }
+  .table-div {
+    margin-left: 3.3rem !important;
+    overflow-x: hidden !important;
   }
 }
 

@@ -11,7 +11,7 @@ Handbooks
         </a>
     </li>
     <li class="menu-nav__item active">
-        <a href="{{ url_for('.handbook') }}" class="menu-nav__link active">
+        <a href="{{ url_for('.handbook', page_num=1) }}" class="menu-nav__link active">
             <i class="far fa-file-alt"></i><span class="nav_name">File Upload</span>
         </a>
     </li>
@@ -43,9 +43,67 @@ Handbooks
             <input type="file" name="handbook" id="file" hidden>
             <label for="file" id="selector">Upload Handbook</label>
             <div class="form-group">
-                <input type="text" class="form-control" id="rename" name="rename" placeholder="Rename file">
+                <input type="text" class="form-control" id="rename" name="rename" placeholder="Name file">
+            </div>
+            <div class="form-group">
+                <input type="hidden" readonly="" name="condition" value="upload">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+    </div>
+
+    <p class="caption">User Handbooks</p>
+    <div class="table-div">
+        {% if handbooks %}
+        <table>
+            <tr class="head">
+                <th>ID</th>
+                <th>Date</th>
+                <th>View</th>
+                <th>Action</th>
+                <th>Action</th>
+            </tr>  
+
+            {% for book in handbooks.items %}
+            <tr>
+                <td>{{ book.id }}</td>
+                <td>{{ book.uploaded_on }}</td>
+                <td><a href="{{ url_for('.view_file', filename=book.book_name) }}">View</a></td>
+                <td>
+                    <form action="" method="POST">
+                        <div class="form-group">
+                            <input type="hidden" readonly="" name="action" value="delete">
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" readonly="" name="id" value="{{ book.public_id }}">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Delete</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="" method="POST">
+                        <div class="form-group">
+                            <input type="hidden" readonly="" name="action" value="restore">
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" readonly="" name="id" value="{{ book.public_id }}">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Restore</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+
+            <p>Pages:{% for page in handbooks.iter_pages(left_edge=2, right_edge=2, left_current=2, right_current=2) %}
+                {% if page %}
+                    <a href="{{ url_for('.handbook', page_num=page ) }}">{{ page }}</a>
+                {% else %}
+                    ...
+                {% endif %}
+            {% endfor %}</p>
+        </table>
+        {% else %}
+            <p class="alert">Please Polulate Database!!!</p>
+        {% endif %}
     </div>
 {% endblock %}

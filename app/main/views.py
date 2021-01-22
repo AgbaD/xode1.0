@@ -6,6 +6,7 @@ from flask import *
 from flask_login import login_required, current_user
 from flask_login import login_user, logout_user
 from werkzeug.security import check_password_hash
+from werkzeug.utils import secure_filename
 
 # user created
 from . import main
@@ -15,6 +16,9 @@ from ..schema import validate_login
 
 # inbuilt
 from datetime import datetime
+import uuid
+
+ALLOWED_EXTENSIONS = {'pdf'}
 
 
 @main.route("/login", methods=['GET', 'POST'])
@@ -122,18 +126,36 @@ def speech():
     return render_template("speech.html", cur=cur_speech, prev=prev_speech)
 
 
-@main.route("/handbook", methods=["GET", "POST"])
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
+@main.route("/handbook/<int:page_num>", methods=["GET", "POST"])
 @login_required
-def handbook():
-    handbooks = Handbook.query.all()
+def handbook(page_num):
+    handbooks = Handbook.query.paginate(per_page=5, page=page_num, error_out=True)
     if request.method == "POST":
-        condition = request.form.get("condition")
+        try:
+            condition = request.form.get("condition")
+        except:
+            condition = None
         if condition == "upload":
-            pass
+            file = request.files["handbook"]
+            name = request.form.get("rename")
+            if file and allowed_file(file.filename):
+                filename = secure_filename(file.filename)
+                file_path = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
+                file.save(file_path)
+                public_id = str(uuid.uuid4())
+                book = Handbook(public_id=public_id, book_name=name, book_path=file_path, uploaded_on=datetime.utcnow())
+                db.session.add(book)
+                db.session.commit()
         else:
             action = request.form.get("action")
             book_id = request.form.get("id")
             book = Handbook.query.filter_by(public_id=book_id)
+            if not book: # should never happen
+                return redirect(url_for('main.internal_server_error'))
             if action == "delete":
                 if book.active:
                     book.active = False
@@ -145,7 +167,16 @@ def handbook():
                     db.session.add(book)
                     db.session.commit()
         return render_template("handbook.html", handbooks=handbooks)
-    return render_template("handbook.html", handbooks=handbooks)
+    if handbooks:
+        return render_template("handbook.html", handbooks=handbooks)
+    else:
+        return render_template("handbook.html", handbooks=None)
+
+
+@main.route('/handbooks/<filename>')
+def view_file(filename):
+    return send_from_directory(current_app.config['UPLOAD_FOLDER'],
+                               filename)
 
 
 @main.route("/view_logs/<int:page_num>")
@@ -161,3 +192,4 @@ def view_logs(page_num):
 
 # still gatta work csrf for frontend
 # then populating the db
+# then uploading handbook

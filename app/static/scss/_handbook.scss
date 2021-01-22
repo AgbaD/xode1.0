@@ -37,6 +37,8 @@
 
             &:hover {
                 transform: scale(1.04);
+                background-color: $primary-color;
+                border-color: $primary-color;
             }
         }
 
