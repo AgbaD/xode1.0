@@ -11,7 +11,7 @@ class Admin(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     fullname = db.Column(db.String(50))
     firstname = db.Column(db.String(50))
-    lastnmae = db.Column(db.String(50))
+    lastname = db.Column(db.String(50))
     email = db.Column(db.String(64), unique=True, index=True)
     password_hash = db.Column(db.String(128))
     # notifications_ = db.Column(db.PickleType)
@@ -20,6 +20,10 @@ class Admin(db.Model, UserMixin):
     facebook = db.Column(db.String(64))
     twitter = db.Column(db.String(64))
     instagram = db.Column(db.String(64))
+
+    def __init__(self, **kwargs):
+        super(Admin, self).__init__(**kwargs)
+        self.fullname = self.firstname + " " + self.lastname
 
 
 class Userlogs(db.Model):
@@ -44,4 +48,4 @@ class Handbook(db.Model, UserMixin):
 
 @login_manager.user_loader
 def load_user(user_id):
-    return User.query.get(int(user_id))
+    return Admin.query.get(int(user_id))

@@ -22,13 +22,13 @@ class Config:
 
 class Development(Config):
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URI") or \
-                              'sqlite:///' + os.path.join(basedir, 'data.db')
+                              'sqlite:///' + os.path.join(basedir, 'data.sqlite')
     DEBUG = True
 
 
 class Testing(Config):
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URI") or \
-                              'sqlite:///' + os.path.join(basedir, 'data.db')
+                              'sqlite:///' + os.path.join(basedir, 'data.sqlite')
     TESTING = True
 
 
@@ -36,7 +36,7 @@ class Production(Config):
     # username = os.environ.get('DB_USERNAME')
     # db_name = os.environ.get("DB_NAME")
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URI") or \
-                              'sqlite:///' + os.path.join(basedir, 'data.db')
+                              'sqlite:///' + os.path.join(basedir, 'data.sqlite')
 
 
 config = {
