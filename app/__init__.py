@@ -6,10 +6,12 @@ from flask_moment import Moment
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_cors import CORS
+from flask_wtf.csrf import CSRFProtect
 from config import config
 
 moment = Moment()
 db = SQLAlchemy()
+csrf = CSRFProtect()
 
 login_manager = LoginManager()
 login_manager.login_view = 'main.login'
@@ -27,6 +29,7 @@ def create_app(config_name):
     moment.init_app(app)
     db.init_app(app)
     login_manager.init_app(app)
+    csrf.init_app(app)
     CORS(app)
 
     from .main import main as main_blueprint

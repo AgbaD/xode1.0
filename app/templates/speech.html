@@ -55,6 +55,9 @@ Speech
                         <div class="form-group">
                             <textarea class="form-control" id="speech" name="speech" rows="13"></textarea>
                         </div>
+                        <div class="form-group">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>

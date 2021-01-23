@@ -39,14 +39,17 @@ Handbooks
 
 {% block content %}
     <div class="upload_handbook">
-        <form method="POST" action="">
-            <input type="file" name="handbook" id="file" hidden>
+        <form method="POST" action="" enctype = "multipart/form-data">
+            <input type="file" name="file" id="file" hidden>
             <label for="file" id="selector">Upload Handbook</label>
             <div class="form-group">
                 <input type="text" class="form-control" id="rename" name="rename" placeholder="Name file">
             </div>
             <div class="form-group">
                 <input type="hidden" readonly="" name="condition" value="upload">
+            </div>
+            <div class="form-group">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
@@ -68,7 +71,13 @@ Handbooks
             <tr>
                 <td>{{ book.id }}</td>
                 <td>{{ book.uploaded_on }}</td>
-                <td><a href="{{ url_for('.view_file', filename=book.book_name) }}">View</a></td>
+                <td>
+                    {% if book.active %}
+                        <a href="{{ url_for('.view_file', filename=book.book_name) }}">View</a>
+                    {% else %}
+                    <p>!!View</p>
+                    {% endif %}
+                </td>
                 <td>
                     <form action="" method="POST">
                         <div class="form-group">
@@ -76,6 +85,9 @@ Handbooks
                         </div>
                         <div class="form-group">
                             <input type="hidden" readonly="" name="id" value="{{ book.public_id }}">
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                         </div>
                         <button type="submit" class="btn btn-primary">Delete</button>
                     </form>
@@ -87,6 +99,9 @@ Handbooks
                         </div>
                         <div class="form-group">
                             <input type="hidden" readonly="" name="id" value="{{ book.public_id }}">
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                         </div>
                         <button type="submit" class="btn btn-primary">Restore</button>
                     </form>

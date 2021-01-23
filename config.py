@@ -9,6 +9,7 @@ password = os.environ.get('DB_PASSWORD')
 
 class Config:
     SECRET_KEY = os.environ.get("SECRET_KEY") or "15zn35&m|j91jqo?91[yke34%@2!jyr|8y5?3&hfo$&/sk]"
+    WTF_CSRF_SECRET_KEY = os.environ.get("WTF_CSRF_SECRET_KEY") or "35&m|j91jqo?91[yke34%@2!jyr|8y5?3&"
     # ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL') or "x@x.com"
     # ADMIN_PASSWORD = os.environ.get('ADMIN_PASSWORD') or "|j91jqo?91[y"
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True

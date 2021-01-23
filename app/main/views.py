@@ -17,8 +17,9 @@ from ..schema import validate_login
 # inbuilt
 from datetime import datetime
 import uuid
+import os
 
-ALLOWED_EXTENSIONS = {'pdf'}
+ALLOWED_EXTENSIONS = {'pdf', 'md', 'txt'}
 
 
 @main.route("/login", methods=['GET', 'POST'])
@@ -81,24 +82,35 @@ def dash():
 def socials():
     if request.method == "POST":
         if request.form.get("facebook"):
-            current_user.facebook = request.form.get("facebook")
+            current_user.facebook = "http://" + request.form.get("facebook")
         if request.form.get("twitter"):
-            current_user.twitter = request.form.get("twitter")
+            current_user.twitter = "http://" + request.form.get("twitter")
         if request.form.get("instagram"):
-            current_user.instagram = request.form.get("instagram")
+            current_user.instagram = "http://" + request.form.get("instagram")
 
         db.session.add(current_user)
         db.session.commit()
+    
+    social = {}
 
     try:
         fb = current_user.facebook
-        tw = current_user.twitter
-        ig = current_user.instagram
-
-        social = {"fb": fb, "tw": tw, "ig": ig}
-        return render_template("socials.html", data=social)
+        social["fb"] = fb
     except:
-        return render_template("socials.html")
+        social["fb"] = "#"
+
+    try:
+        tw = current_user.twitter
+        social["tw"] = tw 
+    except:
+        social["tw"] = "#"
+
+    try:
+        ig = current_user.instagram
+        social["ig"] = ig
+    except:
+        social["ig"] = "#"
+    return render_template("socials.html", data=social)
 
 
 @main.route("/speech", methods=["GET", "POST"])
@@ -133,30 +145,32 @@ def allowed_file(filename):
 @main.route("/handbook/<int:page_num>", methods=["GET", "POST"])
 @login_required
 def handbook(page_num):
-    handbooks = Handbook.query.paginate(per_page=5, page=page_num, error_out=True)
     if request.method == "POST":
         try:
             condition = request.form.get("condition")
         except:
             condition = None
         if condition == "upload":
-            file = request.files["handbook"]
+            file = request.files["file"]
             name = request.form.get("rename")
             if file and allowed_file(file.filename):
                 filename = secure_filename(file.filename)
                 file_path = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
                 file.save(file_path)
                 public_id = str(uuid.uuid4())
-                book = Handbook(public_id=public_id, book_name=name, book_path=file_path, uploaded_on=datetime.utcnow())
+                book = Handbook(public_id=public_id, book_name=filename, book_path=file_path, uploaded_on=datetime.utcnow())
                 db.session.add(book)
                 db.session.commit()
+            else:
+                print("invalid file")
         else:
             action = request.form.get("action")
             book_id = request.form.get("id")
-            book = Handbook.query.filter_by(public_id=book_id)
+            book = Handbook.query.filter_by(public_id=book_id).first()
             if not book: # should never happen
                 return redirect(url_for('main.internal_server_error'))
             if action == "delete":
+                print(book.public_id)
                 if book.active:
                     book.active = False
                     db.session.add(book)
@@ -166,7 +180,9 @@ def handbook(page_num):
                     book.active = True
                     db.session.add(book)
                     db.session.commit()
+        handbooks = Handbook.query.paginate(per_page=5, page=page_num, error_out=True)
         return render_template("handbook.html", handbooks=handbooks)
+    handbooks = Handbook.query.paginate(per_page=5, page=page_num, error_out=True)
     if handbooks:
         return render_template("handbook.html", handbooks=handbooks)
     else:
@@ -191,5 +207,3 @@ def view_logs(page_num):
 
 
 # still gatta work csrf for frontend
-# then populating the db
-# then uploading handbook

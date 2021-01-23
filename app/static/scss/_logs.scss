@@ -17,10 +17,6 @@ table {
             background-color: $secondary-color;
         }
 
-        &:nth-child(even) {
-            background-color: $one-color;
-        }
-
         & td, & th {
             padding: 1rem;
             border-width: 1px;

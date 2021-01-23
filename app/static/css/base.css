@@ -149,10 +149,6 @@ table tr:nth-child(odd) {
   background-color: rgba(20, 189, 96, 0.3);
 }
 
-table tr:nth-child(even) {
-  background-color: #6b6868;
-}
-
 table tr td, table tr th {
   padding: 1rem;
   border-width: 1px;
