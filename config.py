@@ -4,7 +4,7 @@
 import os
 
 basedir = os.path.abspath(os.path.dirname(__file__))
-password = os.environ.get('DB_PASSWORD')
+# password = os.environ.get('DB_PASSWORD')
 
 
 class Config:
@@ -16,6 +16,8 @@ class Config:
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     UPLOAD_FOLDER = os.path.join(basedir, "Handbooks") 
     # MAIL_PREFIX = 'The X'
+
+    SSL_DISABLE = True
 
     @staticmethod
     def init_app(app):
@@ -42,11 +44,28 @@ class Production(Config):
                               'sqlite:///' + os.path.join(basedir, 'data.sqlite')
 
 
+class Heroku(Production):
+    @classmethod
+    def init_app(cls, app):
+        Production.init_app(app)
+        # log to stderr
+        import logging
+        from logging import StreamHandler
+        file_handler = StreamHandler()
+        file_handler.setLevel(logging.WARNING)
+        app.logger.addHandler(file_handler)
+
+        SSL_DISABLE = bool(os.environ.get('SSL_DISABLE'))
+
+        from werkzeug.contrib.fixers import ProxyFix
+        app.wsgi_app = ProxyFix(app.wsgi_app)
+
 config = {
     'development': Development,
     'testing': Testing,
     'production': Production,
-    'default': Development
+    'default': Development,
+    'heroku': Heroku
 }
 
 
