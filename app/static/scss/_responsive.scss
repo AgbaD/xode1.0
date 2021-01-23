@@ -1,0 +1,214 @@
+@include media-mdd {
+    .nav {
+
+        & .menu-nav {
+            width: 10vw !important;
+            padding-top: 7vh !important;
+
+            &.open {
+                width: 30vw !important;
+            }
+        }
+    }
+    .main {
+        left: 10vw !important;
+        width: 90vw !important;
+    }
+    .profile {
+        height: 7vh !important;
+    }
+    .menu-btn {
+        top: 2.5vh !important;
+    }
+    .welcome {
+        margin-left: 3rem !important;
+
+        & h4 {
+            font-size: 30px;
+        }
+
+        & p {
+            font-size: 20px;
+        }
+    }
+    .center {
+        padding-left: 7rem;
+        padding-right: 7rem;
+    }
+    .col-md-5 {
+        margin-right: 1.5rem;
+        margin-left: .6rem;
+    }
+    .login {
+        
+        &-extra {
+            justify-content: center;
+            align-items: start;
+            padding-left: 5rem;
+
+            & p {
+                width: 70%;
+            }
+        }
+
+        &-form {
+
+            &__form {
+                margin-top: -23rem;
+            }
+        }
+    }
+    .update-socials {
+        padding: 6.3rem !important;
+    }
+    .speech {
+    
+        & .row {
+            padding: 3rem 3.3rem;
+
+            & .col-12, & .prev {
+                padding-bottom: 2rem;
+            }
+        }
+    }
+    .upload_handbook {
+        padding: 3rem;
+
+        & form {
+
+            & .form-group {
+
+                & input {
+                    width: 80% !important;
+                }
+            }
+        }
+    }
+    .table-div {
+        margin-left: 2.3rem;
+        margin-right: 2rem;
+    }
+}
+
+@include media-lg {
+    .nav {
+        width: 5vh;
+
+        & .menu-nav {
+            width: 5vw !important;
+            padding-top: 10vh !important;
+
+            &.open {
+                width: 17vw !important;
+            }
+
+            //&__link span.nav_name {
+            //    display: unset !important;
+            //}
+        }
+    }
+    .menu-btn {
+        top: 4vh !important;
+    }
+    .main {
+        left: 5vw !important;
+        width: 94vw !important;
+
+        &.open {
+            left: 17vw !important;
+            width: 82vw !important;
+        }
+    }
+    .profile {
+        height: 10vh !important;
+    }
+    .welcome {
+
+        & h4 {
+            font-size: 37px;
+        }
+
+        & p {
+            font-size: 23px;
+        }
+    }
+    .center {
+
+        & .col-lg-7 {
+            margin-right: 1.3rem;
+        }
+
+        & .col-lg-4 {
+            height: 200px !important;
+        }
+    }
+    .col-md-5 {
+        margin-right: 1.3rem !important;
+        margin-left: unset !important
+    }
+    .login {
+        
+        &-extra {
+            height: 100vh !important;
+            padding-left: 7rem;
+            margin-top: -1rem;
+
+            & h1 {
+                margin-top: -3rem;
+                font-size: 72px;
+                letter-spacing: 2.16px;
+                line-height: 86.4px;
+                width: 80% !important;
+            }
+
+            & p {
+                width: 90% !important
+            }
+        }
+        &-form {
+            height: 100vh !important;
+
+            &__form {
+                width: 50vw !important;
+                margin-top: -3rem;
+            }
+        }
+    }
+    .update-socials {
+        max-height: 50vh;
+        margin-top: -3rem;
+    }
+    .speech {
+    
+        & .row {
+            padding: 3rem 11rem;
+
+            & .col-12, & .prev {
+                padding-bottom: 2rem;
+
+                & p {
+                    font-family: 'Heebo', sans-serif;
+                    letter-spacing: .4px;
+                    line-height: 23px;
+                    font-size: 19px;
+                }
+            }
+        }
+    }
+    .upload_handbook {
+
+        & form {
+
+            & .form-group {
+
+                & input {
+                    width: 70% !important;
+                }
+            }
+        }
+    }
+    .table-div {
+        margin-left: 3.3rem !important;
+        overflow-x: hidden !important;
+    }
+}

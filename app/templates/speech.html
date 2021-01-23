@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}
+Speech
+{% endblock %}
+
+{% block nav_extra %}
+    <li class="menu-nav__item active">
+        <a href="{{ url_for('.dash') }}" class="menu-nav__link active">
+            <i class="far fa-address-book"></i><span class="nav_name">Project Overview</span>
+        </a>
+    </li>
+    <li class="menu-nav__item">
+        <a href="{{ url_for('.handbook', page_num=1) }}" class="menu-nav__link">
+            <i class="far fa-file-alt"></i><span class="nav_name">File Upload</span>
+        </a>
+    </li>
+    <li class="menu-nav__item">
+        <a href="#" class="menu-nav__link">
+            <i class="far fa-envelope"></i><span class="nav_name">Message</span>
+        </a>
+    </li>
+    <li class="menu-nav__item">
+        <a href="#" class="menu-nav__link">
+            <i class="far fa-question-circle"></i><span class="nav_name">Help</span>
+        </a>
+    </li>
+    <li class="menu-nav__item">
+        <a href="#" class="menu-nav__link">
+            <i class="fas fa-cog"></i><span class="nav_name">Settings</span>
+        </a>
+    </li>
+    <li class="menu-nav__item">
+        <a href="{{ url_for('.logout') }}" class="menu-nav__link">
+            <i class="fas fa-power-off"></i><span class="nav_name">Logout</span>
+        </a>
+    </li>
+{% endblock %}
+
+{% block content %}
+    <div class="speech">
+        <div class="container-fluid">
+            <div class="row text-center">
+                <div class="col-12">
+                    <h3>CEO's Speech</h3>
+                    <p>{{ current_user.current_speech }}</p>
+                </div>
+                <div class="col-lg-6 prev">
+                    <h3>Previous Speech</h3>
+                    <p>{{ current_user.previous_speech}}</p>
+                </div>
+                <div class="col-lg-6 form">
+                    <h3>Update Speech</h3>
+                    <form action="" method="POST">
+                        <div class="form-group">
+                            <textarea class="form-control" id="speech" name="speech" rows="13"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

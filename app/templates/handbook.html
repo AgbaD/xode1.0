@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+
+{% block title %}
+Handbooks
+{% endblock %}
+
+{% block nav_extra %}
+    <li class="menu-nav__item">
+        <a href="{{ url_for('.dash') }}" class="menu-nav__link">
+            <i class="far fa-address-book"></i><span class="nav_name">Project Overview</span>
+        </a>
+    </li>
+    <li class="menu-nav__item active">
+        <a href="{{ url_for('.handbook', page_num=1) }}" class="menu-nav__link active">
+            <i class="far fa-file-alt"></i><span class="nav_name">File Upload</span>
+        </a>
+    </li>
+    <li class="menu-nav__item">
+        <a href="#" class="menu-nav__link">
+            <i class="far fa-envelope"></i><span class="nav_name">Message</span>
+        </a>
+    </li>
+    <li class="menu-nav__item">
+        <a href="#" class="menu-nav__link">
+            <i class="far fa-question-circle"></i><span class="nav_name">Help</span>
+        </a>
+    </li>
+    <li class="menu-nav__item">
+        <a href="#" class="menu-nav__link">
+            <i class="fas fa-cog"></i><span class="nav_name">Settings</span>
+        </a>
+    </li>
+    <li class="menu-nav__item">
+        <a href="{{ url_for('.logout') }}" class="menu-nav__link">
+            <i class="fas fa-power-off"></i><span class="nav_name">Logout</span>
+        </a>
+    </li>
+{% endblock %}
+
+{% block content %}
+    <div class="upload_handbook">
+        <form method="POST" action="" enctype = "multipart/form-data">
+            <input type="file" name="file" id="file" hidden>
+            <label for="file" id="selector">Upload Handbook</label>
+            <div class="form-group">
+                <input type="text" class="form-control" id="rename" name="rename" placeholder="Name file">
+            </div>
+            <div class="form-group">
+                <input type="hidden" readonly="" name="condition" value="upload">
+            </div>
+            <div class="form-group">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <p class="caption">User Handbooks</p>
+    <div class="table-div">
+        {% if handbooks %}
+        <table>
+            <tr class="head">
+                <th>ID</th>
+                <th>Date</th>
+                <th>View</th>
+                <th>Action</th>
+                <th>Action</th>
+            </tr>  
+
+            {% for book in handbooks.items %}
+            <tr>
+                <td>{{ book.id }}</td>
+                <td>{{ book.uploaded_on }}</td>
+                <td>
+                    {% if book.active %}
+                        <a href="{{ url_for('.view_file', filename=book.book_name) }}">View</a>
+                    {% else %}
+                    <p>!!View</p>
+                    {% endif %}
+                </td>
+                <td>
+                    <form action="" method="POST">
+                        <div class="form-group">
+                            <input type="hidden" readonly="" name="action" value="delete">
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" readonly="" name="id" value="{{ book.public_id }}">
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Delete</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="" method="POST">
+                        <div class="form-group">
+                            <input type="hidden" readonly="" name="action" value="restore">
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" readonly="" name="id" value="{{ book.public_id }}">
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Restore</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+
+            <p>Pages:{% for page in handbooks.iter_pages(left_edge=2, right_edge=2, left_current=2, right_current=2) %}
+                {% if page %}
+                    <a href="{{ url_for('.handbook', page_num=page ) }}">{{ page }}</a>
+                {% else %}
+                    ...
+                {% endif %}
+            {% endfor %}</p>
+        </table>
+        {% else %}
+            <p class="alert">Please Polulate Database!!!</p>
+        {% endif %}
+    </div>
+{% endblock %}

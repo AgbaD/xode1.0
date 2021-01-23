@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300&display=swap');
+@import "./config";
+@import "./login";
+@import "./logs";
+@import "./socials";
+@import "./speech";
+@import "./handbook";
+@import "./menu";
+@import "./dash";
+@import "./responsive";
+
+body {
+    background: $background-color !important;
+    color: $one-color;
+    height: 100%;
+    line-height: 1;
+}
+a {
+    color: $primary-color;
+    text-decoration: none;
+}
+header {
+    z-index: 2;
+    width: 100%;
+    background: $background-color;
+}

@@ -1,0 +1,190 @@
+.main {
+    position: absolute;
+    top: 0;
+    left: 17vw;
+    height: 100%;
+    width: 82vw;
+    z-index: 1;
+    @include transition-ease;
+}
+
+.profile {
+    width: 100%;
+    text-align: right;
+    float: right;
+    margin-right: -3px;
+    padding-right: .7rem;
+    height: 10vh;
+    border-bottom: 1px solid $third-color;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    &-section {
+
+        & .name {
+            margin-bottom: .1rem;
+            margin-top: .5rem;
+            margin-left: .7rem;
+            font-weight: 500;
+            font-size: 20px;
+        }
+    }
+}
+
+.welcome {
+    margin-left: 1.3rem;
+    margin-top: 7rem;
+
+    & h4 {
+        font-weight: 700;
+    }
+}
+
+
+
+.center {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 800px;
+    padding: 2rem;
+
+    & .col-md-5 {
+        height: 130px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 2px 1px 3px $third-color;
+        border-radius: 7px;
+        transition: all 0.3s ease-in-out;
+        margin-bottom: 1rem;
+
+        &:hover {
+            transform: translateY(-1vh);
+            text-decoration: none;
+        }
+
+        & i {
+            padding: .7rem;
+            border-radius: 50% 50%;
+            background:  rgba(255, 0, 0, 0.3);
+            color: #FF0000;
+            margin-bottom: 1rem;
+        }
+
+        & h5 {
+            font-weight: 700;
+            color: $one-color;
+
+            &:hover {
+                text-decoration: none !important;
+            }
+        }
+
+    }
+
+    & .col-md-6 {
+        height: 130px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 2px 1px 3px $third-color;
+        border-radius: 7px;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            transform: translateY(-1vh);
+            text-decoration: none;
+        }
+
+        & i {
+            padding: .7rem;
+            border-radius: 50% 50%;
+            background:  rgba(0, 0, 255, 0.3);
+            color: rgb(0, 0, 255);
+            margin-bottom: 1rem;
+        }
+
+        & h5 {
+            font-weight: 700;
+            color: $one-color;
+
+            &:hover {
+                text-decoration: none !important;
+            }
+        }
+    }
+
+    & .col-lg-4 {
+        height: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 2px 1px 3px $third-color;
+        border-radius: 7px;
+        transition: all 0.3s ease-in-out;
+        margin-bottom: 1rem;
+
+        &:hover {
+            transform: translateY(-1vh);
+            text-decoration: none;
+        }
+
+        & i {
+            padding: 1.3rem;
+            border-radius: 50% 50%;
+            background:  $secondary-color;
+            color: $primary-color;
+            margin-bottom: 1rem;
+        }
+
+        & h4 {
+            font-weight: 700;
+            color: $one-color;
+
+            &:hover {
+                text-decoration: none !important;
+            }
+        }
+    }
+
+    & .col-lg-7 {
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 2px 1px 3px $third-color;
+        border-radius: 7px;
+        transition: all 0.3s ease-in-out;
+        margin-bottom: 1rem;
+
+        &:hover {
+            transform: translateY(-1vh);
+            text-decoration: none;
+        }
+
+        & i {
+            padding: 1.3rem;
+            border-radius: 50% 50%;
+            background:  $secondary-color;
+            color: $primary-color;
+            margin-bottom: 1rem;
+        }
+
+        & h4 {
+            font-weight: 700;
+            color: $one-color;
+
+            &:hover {
+                text-decoration: none !important;
+            }
+        }
+    }
+}

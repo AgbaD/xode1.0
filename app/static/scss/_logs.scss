@@ -1,0 +1,47 @@
+.table-div {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    margin-left: 1rem;
+}
+
+table {
+    margin-top: 3vh;
+    padding: 1rem;
+    border-collapse: collapse;
+	border: 1px solid #fff; /*for older IE*/
+	border-style: hidden;
+
+    & tr {
+
+        &:nth-child(odd) {
+            background-color: $secondary-color;
+        }
+
+        & td, & th {
+            padding: 1rem;
+            border-width: 1px;
+            border-style: solid;
+            border-color: $secondary-color $third-color;
+        }
+
+        &.head {
+            
+            & th {
+                padding: 8px;
+                background-color: $secondary-color !important;
+                font-size: large;
+                margin: unset !important;
+            }
+        }
+    }
+}
+
+.caption {
+    background-color: $primary-color;
+    color: #fff;
+    font-size: x-large;
+    font-weight: bold;
+    letter-spacing: .3em;
+    padding: 1rem;
+    margin-top: 15vh;
+}
