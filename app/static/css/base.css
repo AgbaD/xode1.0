@@ -18,17 +18,17 @@
 }
 
 .login-div {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
 }
 
 .login-div row {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 }
 
 .login-extra {
-  height: 50vh;
+  height: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -63,7 +63,7 @@
 }
 
 .login-form {
-  height: 50vh;
+  height: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -81,7 +81,7 @@
 }
 
 .login-form__form {
-  width: 100vw;
+  width: 100%;
   margin-top: -3rem;
 }
 
