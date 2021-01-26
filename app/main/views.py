@@ -22,7 +22,7 @@ import os
 ALLOWED_EXTENSIONS = {'pdf', 'md', 'txt'}
 
 
-@main.route("/login", methods=['GET', 'POST'])
+@main.route("/", methods=['GET', 'POST'])
 def login():
     if request.method == "POST":
         email = request.form.get("email").lower()
